@@ -1,123 +1,178 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>SmartTutor.ng - Learn Smarter, Score Higher</title>
-    <style>
-        * { margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; }
-        
-        .navbar { 
-            background: #2563eb; 
-            padding: 18px; 
-            text-align: center; 
-            position: sticky; top: 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .navbar a { 
-            color: white; 
-            text-decoration: none; 
-            padding: 14px 20px; 
-            margin: 5px; 
-            border-radius: 8px; 
-            font-weight: 600;
-            transition: 0.3s;
-        }
-        .navbar a:hover { 
-            background: #3b82f6; 
-        }
-
-        .hero {
-            background: linear-gradient(135deg, #2563eb, #60a5fa);
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-        }
-        .hero h1 { font-size: 50px; margin-bottom: 10px; }
-        .hero p { font-size: 20px; margin-bottom: 20px; }
-        .btn {
-            background: white;
-            color: #2563eb;
-            padding: 15px 35px;
-            text-decoration: none;
-            border-radius: 10px;
-            display: inline-block;
-            font-weight: bold;
-            font-size: 18px;
-        }
-        .btn:hover { background: #eff6ff; }
-        
-        .section {
-            padding: 70px 20px;
-            text-align: center;
-            max-width: 900px;
-            margin: auto;
-        }
-        .section h2 { font-size: 36px; color: #2563eb; margin-bottom: 20px; }
-        .cards { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
-        .card {
-            background: #f0f9ff;
-            padding: 25px;
-            border-radius: 12px;
-            width: 250px;
-            border: 2px solid #dbeafe;
-        }
-        .footer {
-            background: #1e40af;
-            color: white;
-            text-align: center;
-            padding: 25px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudySmart NG | Your Exam Success Partner</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+    html { scroll-behavior: smooth; }
+    body { color:#333; line-height:1.7; }
+    header { background:#004aad; color:white; padding:12px 5%; position:sticky; top:0; z-index:100; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+    nav { display:flex; align-items:center; justify-content:space-between; max-width:1100px; margin:auto; }
+    .brand { display:flex; align-items:center; gap:10px; }
+    .brand img { height:50px; background:white; padding:5px; border-radius:8px; }
+    .brand h2 { font-size:20px; font-weight:600; }
+    nav ul { list-style:none; display:flex; gap:20px; flex-wrap:wrap; }
+    nav a { color:white; text-decoration:none; font-weight:500; }
+    nav a:hover { color:#ff9800; }
+    .container { max-width:1100px; margin:auto; padding:70px 5%; }
+    .hero { background:linear-gradient(to right, #004aad, #0066cc); color:white; text-align:center; padding:100px 5%; }
+    .hero h1 { font-size:44px; margin-bottom:12px; }
+    .hero p { font-size:18px; margin-bottom:20px; }
+    h2 { color:#004aad; font-size:32px; margin-bottom:20px; text-align:center; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:25px; margin-top:30px; }
+    .card { background:#f8f9fa; padding:25px; border-radius:10px; border-left:4px solid #004aad; transition:0.3s; }
+    .card:hover { transform:translateY(-5px); box-shadow:0 5px 15px rgba(0,0,0,0.1); }
+    .card h3 { color:#004aad; margin-bottom:10px; }
+    .sdg { background:#e8f4ff; }
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:30px; align-items:center; }
+    .founder { background:#f0f7ff; padding:60px 5%; }
+    .founder-box { max-width:900px; margin:auto; text-align:center; }
+    .founder-box img { width:120px; height:120px; border-radius:50%; background:#004aad; margin-bottom:15px; border:4px solid #004aad; }
+    .stats { background:#004aad; color:white; padding:50px 5%; text-align:center; }
+    .stats-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:20px; max-width:900px; margin:auto; }
+    .stat-box h3 { font-size:36px; color:#ff9800; }
+    .contact { background:#004aad; color:white; text-align:center; }
+    .btn { display:inline-block; background:#ff9800; color:white; padding:14px 30px; border-radius:5px; text-decoration:none; margin-top:15px; font-weight:600; }
+    .btn:hover { background:#e68900; }
+    footer { text-align:center; padding:20px; background:#222; color:#aaa; font-size:14px; }
+    @media(max-width:768px){ .about-grid{grid-template-columns:1fr;} nav ul{display:none;} }
+  </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#subjects">Subjects</a>
-        <a href="#contact">Join Us</a>
-    </nav>
+<header>
+  <nav>
+    <div class="brand">
+      <img src="logo" alt="StudySmart NG Logo">
+      <h2>StudySmart NG</h2>
+    </div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#founder">Founder</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#sdg">SDG 4</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <section class="hero" id="home">
-        <h1>SmartTutor.ng</h1>
-        <p>Learn smarter, score higher. Online tutoring for JSS & SSS students</p>
-        <a href="#contact" class="btn">Start Learning Today</a>
-    </section>
+<section id="home" class="hero">
+  <h1>StudySmart NG</h1>
+  <p>Your Exam Success Partner | Founded by Ayoola Quadri</p>
+  <a href="#contact" class="btn">Join 500+ Students Today</a>
+</section>
 
-    <section class="section" id="about">
-        <h2>About SmartTutor</h2>
-        <p>We align with <b>SDG 4: Quality Education</b>. 
-        Our mission is to make quality tutoring affordable and accessible to every student in Nigeria. 
-        Get 1-on-1 help, join group classes, and ace your WAEC, JAMB & school exams!</p>
-    </section>
+<section id="about" class="container">
+  <h2>About StudySmart NG</h2>
+  <div class="about-grid">
+    <div>
+      <p><b>StudySmart NG</b> is a Nigerian edtech platform founded to solve one big problem: Many JSS and SSS students struggle with exams because they lack access to quality, affordable learning materials.</p>
+      <p>We provide structured online tutoring, past questions, and study notes that make learning simple. Our mission is to help every student, no matter their background, pass WAEC, NECO, and JAMB with confidence.</p>
+      <p>Located in Owode Ede, we are building the future of education in Nigeria, one student at a time.</p>
+    </div>
+    <div>
+      <h3>Our Vision</h3>
+      <p>To be the #1 exam preparation platform for secondary school students in Nigeria.</p>
+      <h3 style="margin-top:20px;">Our Mission</h3>
+      <p>To make quality education accessible, affordable, and effective for every Nigerian student.</p>
+    </div>
+  </div>
+</section>
 
-    <section class="section" id="subjects" style="background:#eff6ff;">
-        <h2>Subjects We Teach</h2>
-        <div class="cards">
-            <div class="card">
-                <h3>Mathematics</h3>
-                <p>Algebra, Geometry, Statistics made easy</p>
-            </div>
-            <div class="card">
-                <h3>English</h3>
-                <p>Grammar, Comprehension, Essay Writing</p>
-            </div>
-            <div class="card">
-                <h3>Sciences</h3>
-                <p>Physics, Chemistry, Biology with practicals</p>
-            </div>
-        </div>
-    </section>
+<section id="founder" class="founder">
+  <div class="founder-box">
+    <h2>Meet The Founder</h2>
+    <img src="logo" alt="Ayoola Quadri">
+    <h3>Ayoola Quadri</h3>
+    <p><b>Founder & CEO, StudySmart NG</b></p>
+    <p style="margin-top:15px; max-width:700px; margin:auto;">
+      Ayoola Quadri is a passionate educator from Owode Ede, Osun State. After seeing many of his classmates struggle with WAEC and JAMB, he decided to start StudySmart NG in 2024. 
+      His goal is simple: Make sure no Nigerian student fails because they couldn't afford good lessons. 
+      Ayoola believes that with the right guidance and resources, every student can score A1 and gain admission.
+    </p>
+  </div>
+</section>
 
-    <section class="section" id="contact">
-        <h2>Join SmartTutor Today</h2>
-        <p>Email: adebisiadekunte1998@gmail.com | WhatsApp: 0810-958-0885</p>
-        <p>First class is FREE for new students!</p>
-        <a href="mailto:adebisiadekunte1998@gmail.com" class="btn">Send Us a Message</a>
-    </section>
+<section class="stats">
+  <div class="stats-grid">
+    <div class="stat-box"><h3>500+</h3><p>Students Helped</p></div>
+    <div class="stat-box"><h3>10+</h3><p>Subjects Covered</p></div>
+    <div class="stat-box"><h3>95%</h3><p>Pass Rate</p></div>
+  </div>
+</section>
 
-    <footer class="footer">
-        <p>Made by Ayoola Quadri | Week 2 Project | SDG 4 Quality Education</p>
-    </footer>
+<section id="services" class="container">
+  <h2>What We Offer</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>1. Live Online Tutoring</h3>
+      <p>Join live classes with expert tutors every week. Ask questions, solve problems, and get personal feedback in Math, English, Physics, Chemistry, Biology, Economics, and more.</p>
+    </div>
+    <div class="card">
+      <h3>2. WAEC, NECO & JAMB Past Questions</h3>
+      <p>Access 10+ years of past questions with step-by-step solutions. Practice like the real exam and know exactly what to expect.</p>
+    </div>
+    <div class="card">
+      <h3>3. Downloadable Study Notes</h3>
+      <p>Get simplified notes and summaries for all topics. Perfect for last-minute revision before exams.</p>
+    </div>
+    <div class="card">
+      <h3>4. Exam Strategy & CBT Practice</h3>
+      <p>Learn time management, how to answer questions, and practice with our CBT test platform to prepare for JAMB.</p>
+    </div>
+  </div>
+</section>
+
+<section id="sdg" class="sdg">
+  <div class="container">
+    <h2>Our Commitment: SDG 4 - Quality Education</h2>
+    <p>StudySmart NG directly supports <b>United Nations Sustainable Development Goal 4</b>: "Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all."</p>
+    <p>How we contribute:</p>
+    <p>1. <b>Access:</b> We take quality tutoring to students in rural and urban areas who cannot afford private lessons.</p>
+    <p>2. <b>Equity:</b> Our affordable fees ensure that poor students are not left behind.</p>
+    <p>3. <b>Quality:</b> We use proven teaching methods and updated curriculum to ensure students actually learn and pass.</p>
+    <p>By 2030, we aim to help 100,000 Nigerian students achieve their academic goals.</p>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="container">
+    <h2 style="color:white;">Contact Us</h2>
+    <p>We’re here to help you succeed. Reach out to us anytime.</p>
+    
+    <div class="grid" style="margin-top:30px; text-align:left;">
+      <div>
+        <h3 style="color:#ff9800;">Call or Chat</h3>
+        <p><b>WhatsApp:</b> 08109580958</p>
+        <p><b>Phone:</b> +234 810 958 0958</p>
+        <p><b>Email:</b> ayoolaquadri42@gmail.com</p>
+      </div>
+      
+      <div>
+        <h3 style="color:#ff9800;">Visit Us</h3>
+        <p><b>Address:</b> No 12, Owode Market Road, Ede, Osun State, Nigeria</p>
+        <p><b>Hours:</b> Mon - Sat: 8am - 6pm</p>
+        <p><b>Location:</b> Owode Ede, Nigeria</p>
+      </div>
+      
+      <div>
+        <h3 style="color:#ff9800;">Follow Us</h3>
+        <p><b>Facebook:</b> ayoolaquadri</p>
+        <p><b>Telegram:</b> @Quadri123</p>
+        <p><b>Instagram:</b> @studysmartng</p>
+      </div>
+    </div>
+    
+    <a href="https://wa.me/2348109580958" class="btn" style="margin-top:30px;">Chat on WhatsApp Now</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 StudySmart NG. All Rights Reserved. | Founded by Ayoola Quadri</p>
+</footer>
 
 </body>
-      </html>
+    </html>
